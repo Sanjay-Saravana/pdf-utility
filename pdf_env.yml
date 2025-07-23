@@ -1,0 +1,14 @@
+name: pdf_util
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.13
+  - pip
+  - pip:
+     - "fastapi[standard]"
+     - PyPDF2
+     - uvicorn
+     - python-multipart
+     - pillow
+     - pdf2image

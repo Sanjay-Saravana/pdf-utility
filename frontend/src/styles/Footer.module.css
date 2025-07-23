@@ -1,0 +1,39 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1f2937;
+  border-top: 2px solid #374151;
+  color: #d1d5db;
+  padding: 12px 0;
+  z-index: 1000;
+}
+
+.inner {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.links a {
+  color: #d1d5db;
+  margin-left: 16px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: #3b82f6;
+}
+
+.heart {
+  color: #ef4444;
+  margin: 0 4px;
+  vertical-align: middle;
+}
