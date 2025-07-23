@@ -10,11 +10,11 @@ function Footer() {
           Made with <FaHeart className={styles.heart} /> by <strong>Sanjay Saravanan</strong>
         </span>
         <div className={styles.links}>
-          <a href="mailto:sanjay@example.com" title="Email">
+          <a href="mailto:softdevsanjay@gmail.com" title="Email">
             <FaEnvelope />
           </a>
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Sanjay-Saravana"
             target="_blank"
             rel="noopener noreferrer"
             title="GitHub"
