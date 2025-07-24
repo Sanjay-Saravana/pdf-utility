@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Components.module.css';
 import { FaLock } from 'react-icons/fa';
 
-function EncryptForm({ files }) {
+function EncryptForm({ files, backendUrl }) {
   const [password, setPassword] = useState('');
 
   const handleEncrypt = async () => {
@@ -21,7 +21,7 @@ function EncryptForm({ files }) {
     formData.append('password', password);
 
     try {
-      const response = await fetch('/api/encrypt/', {
+      const response = await fetch(`${backendUrl}/encrypt/`, {
         method: 'POST',
         body: formData,
       });

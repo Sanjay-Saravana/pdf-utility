@@ -18,6 +18,8 @@ const tasks = [
   { key: 'preview', label: 'Preview PDF', icon: <FaEye /> }
 ]
 
+const BACKEND_URL = import.meta.env.VITE_API_URL;
+
 function App() {
   const [selectedTask, setSelectedTask] = useState('merge')
   const [files, setFiles] = useState([])
@@ -59,18 +61,19 @@ function App() {
         <MergeForm
           files={files}
           setFiles={setFiles}
+          backendUrl={BACKEND_URL}
         />
       )}
 
       {selectedTask === "encrypt" && (
-        <EncryptForm files={files}/>
+        <EncryptForm files={files} backendUrl={BACKEND_URL}/>
       )}
       {selectedTask === "decrypt" && (
-      <DecryptForm file={files} />
+      <DecryptForm file={files} backendUrl={BACKEND_URL} />
     )}
 
     {selectedTask === "split" && (
-      <SplitForm files={files} />
+      <SplitForm files={files} backendUrl={BACKEND_URL} />
     )}
       </div>
 
