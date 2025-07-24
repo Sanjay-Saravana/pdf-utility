@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Components.module.css';
 import { FaCut } from 'react-icons/fa';
 
-function SplitForm({ files, backendUrl }) {
+function SplitForm({ files }) {
   const [pageRange, setPageRange] = useState('');
   const [multipleFiles, setMultipleFiles] = useState(true);
 
@@ -16,7 +16,7 @@ function SplitForm({ files, backendUrl }) {
     formData.append("multiple", multipleFiles.toString());
 
     try {
-      const res = await fetch(`${backendUrl}/split/`, {
+      const res = await fetch("/api/split/", {
         method: "POST",
         body: formData,
       });

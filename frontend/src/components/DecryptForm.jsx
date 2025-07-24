@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Components.module.css';
 import { FaUnlock } from 'react-icons/fa';
 
-function DecryptForm({ file, backendUrl }) {
+function DecryptForm({ file }) {
   const [password, setPassword] = useState('');
 
   const handleDecrypt = async () => {
@@ -14,7 +14,7 @@ function DecryptForm({ file, backendUrl }) {
     formData.append('password', password);
 
     try {
-      const res = await fetch(`${backendUrl}/decrypt/`, {
+      const res = await fetch("/api/decrypt/", {
         method: 'POST',
         body: formData
       });

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../styles/Components.module.css'
 import { FaArrowUp, FaArrowDown, FaLink } from 'react-icons/fa'
 
-function MergeForm({ files, setFiles, backendUrl }) {
+function MergeForm({ files, setFiles }) {
   const handlePageChange = (index, value) => {
     const updated = [...files]
     updated[index].pageRange = value
@@ -31,7 +31,7 @@ function MergeForm({ files, setFiles, backendUrl }) {
     formData.append("pages", JSON.stringify(pageMap));
 
     try {
-      const res = await fetch(`${backendUrl}/merge/`, {
+      const res = await fetch("/api/merge/", {
         method: "POST",
         body: formData,
       });
