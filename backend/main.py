@@ -15,10 +15,10 @@ app = FastAPI()
 # CORS for local frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://sanjay-saravana.github.io/pdf-utility/"],  # Or specify ["http://localhost:5173"]
+    allow_origins=["*"],  # Or specify ["http://localhost:5173"]
     allow_credentials=True,
-    allow_methods=["https://sanjay-saravana.github.io/pdf-utility/"],
-    allow_headers=["https://sanjay-saravana.github.io/pdf-utility/"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.post("/merge/")
