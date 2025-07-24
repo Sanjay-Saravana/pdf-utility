@@ -49,6 +49,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
+> Backend runs at http://localhost:8000
 
 ### 3. Setup Frontend
 
@@ -57,3 +58,5 @@ cd frontend
 npm install
 npm run dev
 ```
+
+> Frontend runs at http://localhost:5173
