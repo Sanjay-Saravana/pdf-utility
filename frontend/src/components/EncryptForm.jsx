@@ -21,7 +21,7 @@ function EncryptForm({ files }) {
     formData.append('password', password);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/encrypt/', {
+      const response = await fetch('/api/encrypt/', {
         method: 'POST',
         body: formData,
       });

@@ -14,7 +14,7 @@ function DecryptForm({ file }) {
     formData.append('password', password);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/decrypt/", {
+      const res = await fetch("/api/decrypt/", {
         method: 'POST',
         body: formData
       });

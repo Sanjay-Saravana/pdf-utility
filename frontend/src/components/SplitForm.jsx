@@ -16,7 +16,7 @@ function SplitForm({ files }) {
     formData.append("multiple", multipleFiles.toString());
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/split/", {
+      const res = await fetch("/api/split/", {
         method: "POST",
         body: formData,
       });

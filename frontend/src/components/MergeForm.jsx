@@ -31,7 +31,7 @@ function MergeForm({ files, setFiles }) {
     formData.append("pages", JSON.stringify(pageMap));
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/merge/", {
+      const res = await fetch("/api/merge/", {
         method: "POST",
         body: formData,
       });
