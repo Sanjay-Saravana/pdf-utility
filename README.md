@@ -35,7 +35,7 @@ A powerful and user-friendly [web application](https://sanjay-saravana.github.io
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/pdf-utility.git
+git clone https://github.com/Sanjay-Saravana/pdf-utility.git
 cd pdf-utility
 
 ```
