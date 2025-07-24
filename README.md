@@ -49,9 +49,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
-<div style="border-left: 4px solid #007BFF; padding: 0.5em 1em; background: #f0f8ff; color: #333;">
-  <strong>Backend</strong> runs at http://localhost:8000
-</div>
+
+> [!NOTE]
+> **Backend** runs at http://localhost:8000
 
 ### 3. Setup Frontend
 
@@ -60,6 +60,5 @@ cd frontend
 npm install
 npm run dev
 ```
-<div style="border-left: 4px solid #007BFF; padding: 0.5em 1em; background: #f0f8ff; color: #333;">
-  <strong>Frontend</strong> runs at http://localhost:5173
-</div>
+> [!NOTE]
+> **Frontend** runs at http://localhost:5173
