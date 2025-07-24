@@ -9,6 +9,7 @@ import EncryptForm from './components/EncryptForm'
 import DecryptForm from './components/DecryptForm'
 import SplitForm from './components/SplitForm'
 import Footer from './components/Footer'
+import { BackendProvider } from './BackendContext'
 
 const tasks = [
   { key: 'merge', label: 'Merge PDF', icon: <FaPlus /> },
@@ -30,53 +31,55 @@ function App() {
   
 
   return (
-    <div className={styles.container}>
+    <BackendProvider>
+      <div className={styles.container}>
 
-      <div className={styles.mainContent}>
-        <h1 className={styles.title}>
-        <FaFilePdf style={{ color: '#dc2626', marginRight: '10px' }} />
-        PDF Utility
-      </h1>
+        <div className={styles.mainContent}>
+          <h1 className={styles.title}>
+          <FaFilePdf style={{ color: '#dc2626', marginRight: '10px' }} />
+          PDF Utility
+        </h1>
 
-      <TaskSelector
-        tasks={tasks}
-        selectedTask={selectedTask}
-        setSelectedTask={handleTaskChange}
-      />
-
-      <FileUpload
-        files={files.map(f => f.file)}  // still send just raw Files to FileUpload
-        setFiles={(uploadedFiles) => {
-          const wrapped = uploadedFiles.map(file => ({ file, pageRange: '' }))
-          setFiles(wrapped)
-        }}
-        selectedTask={selectedTask}
-      />
-
-      {selectedTask === 'preview' && <PDFViewer files={files} />}
-
-      {selectedTask === 'merge' && (
-        <MergeForm
-          files={files}
-          setFiles={setFiles}
+        <TaskSelector
+          tasks={tasks}
+          selectedTask={selectedTask}
+          setSelectedTask={handleTaskChange}
         />
+
+        <FileUpload
+          files={files.map(f => f.file)}  // still send just raw Files to FileUpload
+          setFiles={(uploadedFiles) => {
+            const wrapped = uploadedFiles.map(file => ({ file, pageRange: '' }))
+            setFiles(wrapped)
+          }}
+          selectedTask={selectedTask}
+        />
+
+        {selectedTask === 'preview' && <PDFViewer files={files} />}
+
+        {selectedTask === 'merge' && (
+          <MergeForm
+            files={files}
+            setFiles={setFiles}
+          />
+        )}
+
+        {selectedTask === "encrypt" && (
+          <EncryptForm files={files}/>
+        )}
+        {selectedTask === "decrypt" && (
+        <DecryptForm file={files} />
       )}
 
-      {selectedTask === "encrypt" && (
-        <EncryptForm files={files}/>
+      {selectedTask === "split" && (
+        <SplitForm files={files} />
       )}
-      {selectedTask === "decrypt" && (
-      <DecryptForm file={files} />
-    )}
+        </div>
 
-    {selectedTask === "split" && (
-      <SplitForm files={files} />
-    )}
+      <Footer />
+
       </div>
-
-    <Footer />
-
-    </div>
+    </BackendProvider>
   )
 }
 

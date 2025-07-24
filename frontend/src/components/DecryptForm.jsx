@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import styles from '../styles/Components.module.css';
 import { FaUnlock } from 'react-icons/fa';
+import { useBackend } from '../BackendContext';
 
 function DecryptForm({ file }) {
   const [password, setPassword] = useState('');
+  const backendUrl = useBackend();
 
   const handleDecrypt = async () => {
     if (!file.length) return alert('Please upload an encrypted PDF.');
@@ -14,7 +16,7 @@ function DecryptForm({ file }) {
     formData.append('password', password);
 
     try {
-      const res = await fetch("/api/decrypt/", {
+      const res = await fetch(`${backendUrl}/decrypt/`, {
         method: 'POST',
         body: formData
       });

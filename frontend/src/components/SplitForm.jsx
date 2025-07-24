@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import styles from '../styles/Components.module.css';
 import { FaCut } from 'react-icons/fa';
+import { useBackend } from '../BackendContext';
 
 function SplitForm({ files }) {
   const [pageRange, setPageRange] = useState('');
   const [multipleFiles, setMultipleFiles] = useState(true);
+  const backendUrl = useBackend();
 
   const handleSplit = async () => {
     if (files.length === 0) return alert("Upload a PDF first.");
@@ -16,7 +18,7 @@ function SplitForm({ files }) {
     formData.append("multiple", multipleFiles.toString());
 
     try {
-      const res = await fetch("/api/split/", {
+      const res = await fetch(`${backendUrl}/split/`, {
         method: "POST",
         body: formData,
       });
