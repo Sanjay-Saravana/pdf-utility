@@ -21,6 +21,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def read_root():
+    return {"message": "I am Live now!"}
+
 @app.post("/merge/")
 async def merge_endpoint(
     files: List[UploadFile] = File(...),
